@@ -9,18 +9,24 @@ import os
 # from sklearn.model_selection import train_test_split
 from keras.preprocessing.image import ImageDataGenerator
 
-
+# 이 파일(datasets.py)을 직접 터미널에서 실행할 경우 실행되는 코드
 if __name__ == "__main__":
+    # cifar-10 데이터 다운로드
     current_path = os.getcwd()
-    os.makedirs(current_path + "/data")
-
     url = "http://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz"
-    wget.download(url, out = current_path + "/data")
+    wget.download(url, out = current_path)
 
-    path_to_zip_file = current_path + "/data/cifar-10-python.tar.gz"
-    directory_to_extract_to = current_path + "/data"
-    with zipfile.ZipFile(path_to_zip_file, 'r') as zip_ref:
-        zip_ref.extractall(directory_to_extract_to)
+    # 압축 풀기
+    tar = tarfile.open(current_path + "/cifar-10-python.tar.gz")
+    tar.extractall(path = current_path)
+    tar.close()
+
+    # 압축 파일 삭제
+    os.remove(current_path+"/cifar-10-python.tar.gz")
+
+    # 폴더명 '/data'로 변경
+    os.rename(current_path+"/cifar-10-batches-py", current_path+"/data")
+    
 
 
 def unpickle(file):
