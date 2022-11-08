@@ -15,7 +15,7 @@ if __name__ == "__main__":
     print(args)
 
     # 데이터 불러오기
-    train_generator, test_generator = datasets.dataloader(args.batch_size)
+    train_generator, test_generator = datasets.data_loader(args.batch_size)
     print("데이터를 잘 준비했습니다.")
 
     # 모델 불러오기 및 학습하기

@@ -4,7 +4,7 @@
 import numpy as np
 import pickle
 import wget
-import zipfile
+import tarfile
 import os
 # from sklearn.model_selection import train_test_split
 from keras.preprocessing.image import ImageDataGenerator
@@ -43,13 +43,13 @@ def pickle_to_images_and_labels(root):
 
 def data_loader(batch_size):
     current_path = os.getcwd()
-    images1, label1 = pickle_to_images_and_labels(current_path + "/data/cifar-10-batches-py/data_batch_1")
-    images2, label2 = pickle_to_images_and_labels(current_path + "/data/cifar-10-batches-py/data_batch_2")
-    images3, label3 = pickle_to_images_and_labels(current_path + "/data/cifar-10-batches-py/data_batch_3")
-    images4, label4 = pickle_to_images_and_labels(current_path + "/data/cifar-10-batches-py/data_batch_4")
-    images5, label5 = pickle_to_images_and_labels(current_path + "/data/cifar-10-batches-py/data_batch_5")
+    images1, label1 = pickle_to_images_and_labels(current_path + "/data/data_batch_1")
+    images2, label2 = pickle_to_images_and_labels(current_path + "/data/data_batch_2")
+    images3, label3 = pickle_to_images_and_labels(current_path + "/data/data_batch_3")
+    images4, label4 = pickle_to_images_and_labels(current_path + "/data/data_batch_4")
+    images5, label5 = pickle_to_images_and_labels(current_path + "/data/data_batch_5")
 
-    test_images, test_labels = pickle_to_images_and_labels(current_path + "/data/cifar-10-batches-py/test_batch")
+    test_images, test_labels = pickle_to_images_and_labels(current_path + "/data/test_batch")
 
     train_images = np.concatenate([images1, images2, images3, images4, images5], axis = 0)
     train_labels = np.concatenate([label1, label2, label3, label4, label5], axis = 0)
