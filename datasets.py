@@ -1,12 +1,8 @@
-# !wget -c http://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz
-# !tar -xzvf cifar-10-python.tar.gz
-
 import numpy as np
 import pickle
 import wget
 import tarfile
 import os
-# from sklearn.model_selection import train_test_split
 from keras.preprocessing.image import ImageDataGenerator
 
 # 이 파일(datasets.py)을 직접 터미널에서 실행할 경우 실행되는 코드
@@ -55,11 +51,9 @@ def data_loader(batch_size):
     train_labels = np.concatenate([label1, label2, label3, label4, label5], axis = 0)
     test_images = np.concatenate([test_images], axis = 0)
     test_labels = np.concatenate([test_labels], axis = 0)
-    # train_images, valid_images, train_labels, valid_labels = train_test_split(train_images, train_labels, stratify = train_labels, random_state = 42, test_size = 0.2)
 
     idg = ImageDataGenerator(horizontal_flip=True) # data augmentation
     train_generator = idg.flow(train_images, y = train_labels, batch_size = batch_size)
-    # valid_generator = idg.flow(valid_images, y = valid_labels, batch_size = batch_size)
     test_generator = idg.flow(test_images, y = test_labels, batch_size = batch_size,
                                             shuffle = False)
 

@@ -5,11 +5,8 @@ import datasets
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='CIFAR10 image classification')
-    parser = argparse.ArgumentParser(description='CIFAR10 image classification')
     parser.add_argument('--batch_size', default=128, type=int, help='batch size')
     parser.add_argument('--epoch', default=5, type=int, help='training epoch')
-    parser.add_argument('--lr', default=1e-3, type=float, help='learning rate')
-    parser.add_argument('--model_name', default='resnet18', type=str, help='model name')
     parser.add_argument('--train', default='train', type=str, help='train and eval')
     args = parser.parse_args()
     print(args)
