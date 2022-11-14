@@ -7,7 +7,7 @@ git clone https://github.com/kwanghoum/beyond_jupyter.git
 cd beyond_jupyter
 ```
 
-- 데이터셋 구성하기
+- 데이터셋 구성하기(CIFAR-10 데이터셋을 활용합니다.)
 ```bash
 python datasets.py
 ```
